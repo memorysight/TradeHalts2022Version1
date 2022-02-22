@@ -86,8 +86,53 @@ const Home = ()=>{
                         </th>
 
                         <th>
+                            Symbol
+                        </th>
+                        <th>
                             Account
                         </th>
+                        
+                        <th>
+                            Branch No
+                        </th>
+
+                        <th>
+                            TIF
+                        </th> 
+                        <th>
+                            Halt Status
+                        </th>
+                        
+                        <th>
+                            Quantity
+                        </th>
+
+                        <th>
+                            Related Fill Price
+                        </th>
+                        <th>
+                            Related Fill Qty
+                        </th>
+                        
+                        <th>
+                            Related Fill Exec Ts
+                        </th>
+
+                        <th>
+                            Creation User ID
+                        </th>
+                        <th>
+                            Creation TS
+                        </th>
+                        
+                        <th>
+                            Revision User ID
+                        </th>
+
+                        <th>
+                            Revision TS
+                        </th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -101,6 +146,43 @@ const Home = ()=>{
                         <td>
                             123446
                         </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                        <td>
+                            123446
+                        </td>
+                       
                     </tr>
                 </tbody>
             </table>
