@@ -23,13 +23,13 @@ legend{
 
 
 }
-label{
+.element label {
     width: 125px;
     display: block;
 
 }
 
-input, select{
+.element input, select{
     width: 100px;
 
 }
@@ -57,6 +57,9 @@ button{
 table{
     width: 100%;
 
+}
+table.halfwidth{
+    width: 50%;
 }
 thead{
     background: #f0f0f0;

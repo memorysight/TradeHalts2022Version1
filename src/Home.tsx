@@ -3,17 +3,29 @@ import {useState} from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
+type Views = "summary" | "detail";
+const mockSummary = [{symbol:"APL", quantity: 100}, {symbol:"IBM", quantity: 167}, {symbol:"TSL", quantity: 1450}]
 const Home = ()=>{
+    const [selectedView, setSelectedView] = useState< Views >("detail");
     const [startDate, setStartDate] = useState<Date | null>(new Date());
     const [endDate, setEndDate] = useState<Date | null>(new Date());
+    const handleChangeView = (newView:Views ) => () => setSelectedView(newView)
 
     return(
         <div>
             <form>
                 <legend>
-                    Order Halt Query
+                    Order Halt {selectedView === "summary" ? "Summary" : "Query"}
                 </legend>
+                <div className = "inputRow">
+                    <button className = "primary" type = "button" onClick = {()=>{console.log("refresh")}}> Refresh</button>
+                   
+                        View State: <label><input onChange={handleChangeView("summary" )} type = "radio" checked = {selectedView === "summary"}/> Summary </label>
+                        <label><input onChange={handleChangeView("detail" )} type = "radio" checked = {selectedView === "detail"}/> Detail </label>
+                  
+
+                </div>
+                {selectedView === "detail" && <>
                 <div className = "inputRow">
                     <div className = "element">
                         <label>EJ Order#</label>
@@ -72,8 +84,39 @@ const Home = ()=>{
                     <button className= "primary"> Search </button>
                     <button >Clear</button>
                 </div>
+                </>}
             </form>
+            {selectedView === "summary" && 
+              <table className = "halfwidth" cellSpacing={0} cellPadding={0}>
+              <thead>
+                  <tr>
+                      <th>
+                          EJ Order#
+                      </th>
+                      
+                      <th>
+                          # Orders Halted
+                      </th>
+                     </tr>
+                </thead>
+                <tbody>
+                    {mockSummary.map(item => (
+                            <tr key = {item.symbol}>
+                            <td>
+                                {item.symbol}
+                            </td>
+                            <td>
+                                {item.quantity}
+                            </td>
+                         </tr >
+                    ))}
+                   
+                    </tbody>
+                 </table>
+                      }
+                     
 
+            {selectedView === "detail" && 
             <table cellSpacing={0} cellPadding={0}>
                 <thead>
                     <tr>
@@ -185,7 +228,7 @@ const Home = ()=>{
                        
                     </tr>
                 </tbody>
-            </table>
+            </table> }
 
         </div>
     )
