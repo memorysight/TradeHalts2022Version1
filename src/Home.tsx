@@ -1,6 +1,7 @@
 import "./Home.css";
 import {useState} from "react";
 import DatePicker from "react-datepicker";
+import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
 
 type Views = "summary" | "detail";
@@ -10,6 +11,23 @@ const Home = ()=>{
     const [startDate, setStartDate] = useState<Date | null>(new Date());
     const [endDate, setEndDate] = useState<Date | null>(new Date());
     const handleChangeView = (newView:Views ) => () => setSelectedView(newView)
+
+    // const obtainDB2Data = ()=>{
+    //     const URL_SUMMARY = 'http://localhost:8080/halt-controller/halted-records/summary';
+    //     const URL_RECORDS = 'http://localhost:8080/halt-controller/halted-records-summary';
+
+    //     axios.get(URL_RECORDS, header:{
+    //         'Acces-Control_Allow-Origin': '*',
+    //         'Content-Type': 'application/json',
+    //     }},)
+    //     .then((rest)=>{
+    //         let records = res.data;
+    //         useState({
+    //             records
+    //         })
+    //         console.log("Records", records)
+    //     })
+    // };
 
     return(
         <div>
